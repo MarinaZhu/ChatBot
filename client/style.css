@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E8EBF5;
+    font-family: Raleway;
+}
+
+.chat-box {
+    height: 80%;
+    width: 400px;
+    position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    z-index: 15;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.005);
+    right: 0;
+    bottom: 0;
+    margin: 15px;
+    background: #fff;
+    border-radius: 15px;
+}
+
+.chat-box-header {
+    height: 10%;
+    padding: 1rem 1.5rem 0.5rem;
+    background-color: #fff;
+    color: #000;
+    border-radius: 1rem 1rem 0 0;
+    box-shadow: 0 1px 10px rgba(0,0,0,0.025);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.chat-box-header h1 {
+    font: 400 1rem ubuntu, sans-serif;
+}
+
+.chat-box-header p {
+    cursor: pointer;
+}
+
+.chat-box-body {
+    height: 80%;
+    padding: 0.95rem;
+    background-color: #f8f8f8;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* Hide scrollbar for IE и Edge */
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.chat-box-body::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-box-body-message {
+    width: 250px;
+    word-wrap: break-word; /* wrap long words to the next line */
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.02);
+}
+
+.chat-box-body-message.send {
+    float: right;
+}
+
+.chat-box-body-message.receive {
+    float: left;
+}
+
+.chat-box-body-message p {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: .25rem;
+}
+
+.chat-box-body-message span {
+    font-size: 0.6rem;
+    color: #777;
+    float: right;
+}
+
+.typing-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typing-indicator .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 10px 3px;
+    -webkit-animation: typing 1s ease-in-out infinite;
+    animation: typing 1s ease-in-out infinite;
+}
+
+.typing-indicator .dot:nth-child(2) {
+    -webkit-animation-delay: 250ms;
+    animation-delay: 250ms;
+}
+
+.typing-indicator .dot:nth-child(3) {
+    -webkit-animation-delay: 500ms;
+    animation-delay: 500ms;
+}
+
+.chat-footer {
+    height: 10%;
+    background-color: #fff;
+    color: #000;
+    border-radius: 0 0 1rem 1rem;
+    display: flex;
+}
+
+.chat-footer input {
+    flex: 1 0 auto;
+    margin: 0.6rem;
+    padding: 0.6rem;
+    background-color: #F5F5F5FF;
+    border-radius: 3rem;
+    font: 600 0.8rem ubuntu, sans-serif;
+    color:#444;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+}
+
+.chat-footer .send {
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.chat-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    padding: 20px 16px;
+    margin: 1rem;
+    background: #2C50EF;
+    border-radius: 25px 25px 0 25px;
+    box-shadow: 0 2px 15px rgba(44, 80, 239,.21);
+    cursor: pointer;
+}
+
+.chat-button span::before {
+    content: '';
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 10px;
+    background-color: #47cf73;
+    border-radius: 1rem;
+}
+
+.chat-button span::after {
+    content: 'Message Us';
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.chat-button:hover {
+    background: #1f38a3;
+    box-shadow: 0 2px 15px rgba(44, 80, 239,.21);
+}
+
+.hide {
+    display: none;
+}
+
+.disabled {
+    disabled: true;
+    color: #444444;
+}
+
+@-webkit-keyframes typing {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes typing {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
+
+@media screen and (max-height: 450px)
+{
+    .chat-box-body{
+        min-height: 400px;
+    }
+}
+
